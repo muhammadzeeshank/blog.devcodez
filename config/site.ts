@@ -5,6 +5,7 @@ export const siteConfig = {
     description:
       "Beautifully designed starting template for nextjs",
     links: {
+      portfolio: "https://zeeshan.devcodez.com",
       github: "https://github.com/muhammadzeeshank",
     },
   }
