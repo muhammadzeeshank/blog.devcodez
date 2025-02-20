@@ -38,7 +38,10 @@ export default function RootLayout({
         >
           <div data-wrapper="" className="border-grid flex flex-1 flex-col">
             <Navbar />
-            {children}
+            <div className="container-wrapper">
+              <div className="container">{children}</div>
+            </div>
+
             <SiteFooter />
           </div>
         </ThemeProvider>
