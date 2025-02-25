@@ -8,7 +8,7 @@ import fs from "fs";
 import matter from 'gray-matter';
 
 interface BlogPost {
-  id: number;
+  slug: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -16,10 +16,10 @@ interface BlogPost {
 }
 
 const dirContent = fs.readdirSync("content",  "utf-8");
-const blogPosts = dirContent.map(file => {
+const blogPosts: BlogPost[] = dirContent.map(file => {
   const fileContent = fs.readFileSync(`content/${file}`, "utf-8");
   const {data} = matter(fileContent);
-  return data;
+  return data as BlogPost;
 })
 
 // const blogPosts: Map<number, BlogPost> = new Map([
@@ -49,7 +49,7 @@ export default function BlogCards() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       {[...blogPosts.values()].map((post) => (
-        <Card key={post.id} className="rounded-lg overflow-hidden shadow-md">
+        <Card key={post.slug} className="rounded-lg overflow-hidden shadow-md">
           <Image
             src={post.imageUrl}
             alt={post.title}
@@ -63,7 +63,7 @@ export default function BlogCards() {
             <p className="text-sm text-secondary-foreground mt-2">
               {post.description}
             </p>
-            <Link href={`/blog/${post.id}`} passHref>
+            <Link href={`/blog/${post.slug}`} passHref>
               <Button className="mt-4 w-full">Read More</Button>
             </Link>
           </CardContent>

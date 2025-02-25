@@ -1,5 +1,5 @@
 ---
-id: 1
+slug: understanding-next.js-15
 title: Understanding Next.js 15
 description: A deep dive into the latest features of Next.js 15.
 imageUrl: /post-image.jpg
