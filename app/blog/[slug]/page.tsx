@@ -43,13 +43,12 @@ export default async function Page({
   const htmlContent = (await processor.process(content)).toString();
 
   return (
-    <div className="mx-auto max-w-6xl p-4">
+    <div className="mx-auto prose dark:prose-invert max-w-3xl p-4">
       <h1 className="text-4xl font-bold mb-2">{data.title}</h1>
       <p className="text-base mt-0 text-muted-foreground">{data.date}</p>
       <hr className="my-4" />
       <div
         dangerouslySetInnerHTML={{ __html: htmlContent }}
-        className="prose dark:prose-invert"
       />
     </div>
   );
