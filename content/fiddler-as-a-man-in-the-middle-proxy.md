@@ -4,6 +4,7 @@ title: Fiddler as a Man-in-the-Middle Proxy
 description: A deep dive into the working of fiddler.
 imageUrl: /fiddler-everywhere.svg
 date: October 5, 2025
+category: fiddler
 ---
 
 ## Why not to use fiddler classic to capture https?
