@@ -10,7 +10,7 @@ import matter from 'gray-matter';
 interface BlogPost {
   slug: string;
   title: string;
-  description: string;
+  summary: string;
   imageUrl: string;
   date: string;
 }
@@ -59,9 +59,9 @@ export default function BlogCards() {
           />
           <CardContent className="p-4">
             <h2 className="text-xl font-bold text-primary">{post.title}</h2>
-            <p className="text-muted-foreground text-sm">{post.date}</p>
+            {/* <p className="text-muted-foreground text-sm">{post.date}</p> */}
             <p className="text-sm text-secondary-foreground mt-2">
-              {post.description}
+              {post.summary}
             </p>
             <Link href={`/blog/${post.slug}`} passHref>
               <Button className="mt-4 w-full">Read More</Button>

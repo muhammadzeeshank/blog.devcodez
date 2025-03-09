@@ -1,9 +1,9 @@
 ---
 slug: fiddler-as-a-man-in-the-middle-proxy
 title: Fiddler as a Man-in-the-Middle Proxy
-description: A deep dive into the working of fiddler.
+summary: A deep dive into the working of fiddler. This is a very long summary to check ho it looks like.
 imageUrl: /fiddler-everywhere.svg
-date: October 5, 2025
+date: 2025-01-26
 category: fiddler
 ---
 
