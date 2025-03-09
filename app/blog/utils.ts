@@ -1,25 +1,40 @@
 import fs from "fs";
 import path from "path";
-import matter from 'gray-matter';
+import matter, { GrayMatterFile } from 'gray-matter';
+
+interface BlogMetadata {
+  title: string;
+  date: string;
+  category: string;
+  [key: string]: any; // Allows additional frontmatter fields
+}
+
+interface BlogPost {
+  metadata: BlogMetadata;
+  slug: string;
+  content: string;
+}
 
 
 // get all the mdx files from the dir
-function getMDXFiles(dir: string) {
+function getMDXFiles(dir: string): string[] {
     return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx" || path.extname(file) === ".md");
   }
 
   // Read data from those files
-function readMDXFile(filePath: fs.PathOrFileDescriptor) {
+function readMDXFile(filePath: fs.PathOrFileDescriptor): { metadata: BlogMetadata; content: string } {
     let rawContent = fs.readFileSync(filePath, "utf-8");
-    return matter(rawContent);
+    const { data, content } = matter(rawContent);
+
+    return { metadata: data as BlogMetadata, content }; // Explicitly type metadata
   }
 
   // present the mdx data and metadata
-function getMDXData(dir: string) {
+function getMDXData(dir: string): BlogPost[] {
   let mdxFiles = getMDXFiles(dir);
 
   return mdxFiles.map((file) => {
-    let { data: metadata, content } = readMDXFile(path.join(dir, file));
+    let { metadata, content } = readMDXFile(path.join(dir, file));
     let slug = path.basename(file, path.extname(file));
 
     return {
@@ -30,16 +45,16 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getBlogPosts() {
+export function getBlogPosts(): BlogPost[] {
   return getMDXData(path.join(process.cwd(), "content"));
 }
 export function getTermsOfServices() {
   return getMDXData(
-    path.join(process.cwd(), "src", "app", "terms-of-services")
+    path.join(process.cwd(), "app", "terms-of-services")
   );
 }
 export function getPrivacyPolicy() {
-  return getMDXData(path.join(process.cwd(), "src", "app", "privacy-policy"));
+  return getMDXData(path.join(process.cwd(), "app", "privacy-policy"));
 }
 
 export function formatDate(date: string, includeRelative = false) {
