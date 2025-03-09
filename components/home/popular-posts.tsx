@@ -19,7 +19,7 @@ export default function PopularPosts() {
         <Link href={`/blog/${post.category}/${post.slug}`} key={post.title}>
           <li className="flex items-center gap-2 group cursor-pointer py-2">
             <Icons.arrowRight className="h-4 w-4 group-hover:translate-x-1 transition-all" />
-            <p>{post.title}</p>
+            <p className="text-wrap max-w-md">{post.title}</p>
           </li>
         </Link>
       ))}
