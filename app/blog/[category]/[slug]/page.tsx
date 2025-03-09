@@ -10,6 +10,7 @@ import { unified } from "unified";
 import { reporter } from "vfile-reporter";
 import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
+import { getBlogPosts } from "../../utils";
 
 export default async function Page({
   params,
@@ -17,12 +18,11 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const filePath = `content/${slug}.md`;
-  if (!fs.existsSync(filePath)) {
+  let post = getBlogPosts().find((post) => post.slug === slug);
+
+  if (!post) {
     notFound();
   }
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(fileContent);
 
   const processor = await unified()
     .use(remarkParse)
@@ -36,15 +36,15 @@ export default async function Page({
         }),
       ],
     })
-    .use(rehypeDocument, { title: data.title })
+    .use(rehypeDocument, { title: post.metadata.title })
     .use(rehypeFormat)
     .use(rehypeStringify);
 
-  const htmlContent = (await processor.process(content)).toString();
+  const htmlContent = (await processor.process(post.content)).toString();
 
   return (
     <div className="mx-auto prose dark:prose-invert max-w-3xl p-4">
-      <h1 className="text-4xl font-bold mb-2">{data.title}</h1>
+      <h1 className="text-4xl font-bold mb-2">{post.metadata.title}</h1>
       {/* <p className="text-base mt-0 text-muted-foreground">{data.date}</p> */}
       <hr className="my-4" />
       <div
