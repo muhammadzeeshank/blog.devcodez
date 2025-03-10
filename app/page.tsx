@@ -15,7 +15,7 @@ export default function Home() {
             <h1 className="font-bold mb-4">TOP CATEGORIES</h1>
             <TopCatogories />
           </div>
-          <div className="mt-10 sticky top-0">
+          <div className="mt-10 sticky top-20">
             <h1 className="font-bold mb-4">POPULAR POSTS</h1>
             <PopularPosts />
           </div>
