@@ -3,6 +3,7 @@ import { getBlogPosts } from "../utils";
 import Link from "next/link";
 import Header from "@/components/Header";
 import CardCategory from "@/components/card-category";
+import Container from "@/components/container";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -36,13 +37,11 @@ export default function Page({ params }: { params: { category: string } }) {
             {posts[0]?.metadata.category}
           </h1>
       </Header>
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
           {posts
             .sort((a, b) => {
-              if (
-                new Date(a.metadata.date) >
-                new Date(b.metadata.date)
-              ) {
+              if (new Date(a.metadata.date) > new Date(b.metadata.date)) {
                 return -1;
               }
               return 1;
@@ -60,6 +59,7 @@ export default function Page({ params }: { params: { category: string } }) {
               </Link>
             ))}
         </div>
+      </Container>
     </>
   );
 }

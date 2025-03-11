@@ -10,8 +10,10 @@ import { unified } from "unified";
 import { reporter } from "vfile-reporter";
 import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
-import { getBlogPosts } from "../../utils";
+import { formatDate, getBlogPosts } from "../../utils";
 import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
+import Container from "@/components/container";
+import Header from "@/components/Header";
 
 export default async function Page({
   params,
@@ -45,16 +47,32 @@ export default async function Page({
 
   return (
     <>
-      <div className="mx-auto prose dark:prose-invert max-w-3xl p-4">
-      <BreadcrumbWithCustomSeparator
-        category={post.metadata.category}
-        slug={post.slug}
-      />
-        <h1 className="text-4xl font-bold mb-2">{post.metadata.title}</h1>
-        {/* <p className="text-base mt-0 text-muted-foreground">{data.date}</p> */}
-        <hr className="my-4" />
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-      </div>
+      <Header>
+          <BreadcrumbWithCustomSeparator
+            category={post.metadata.category}
+            slug={post.slug}
+          />
+          <h1 className="title font-semibold text-2xl tracking-tighter mt-4">
+            {post.metadata.title}
+          </h1>
+          <div className="flex justify-between items-center mt-2 text-sm">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+              {formatDate(post.metadata.date.toString())}
+            </p>
+          </div>
+      </Header>
+      <Container>
+        <div className="mx-auto prose dark:prose-invert max-w-3xl p-4">
+          {/* <BreadcrumbWithCustomSeparator
+            category={post.metadata.category}
+            slug={post.slug}
+          /> */}
+          {/* <h1 className="text-4xl font-bold mb-2">{post.metadata.title}</h1> */}
+          {/* <p className="text-base mt-0 text-muted-foreground">{data.date}</p> */}
+          {/* <hr className="my-4" /> */}
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        </div>
+      </Container>
     </>
   );
 }
