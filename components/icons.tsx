@@ -35,30 +35,45 @@ export const Icons = {
     </svg>
   ),
   logo: (props: IconProps) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" {...props}>
-      <rect width="256" height="256" fill="none" />
-      <line
-        x1="208"
-        y1="128"
-        x2="128"
-        y2="208"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
-      />
-      <line
-        x1="192"
-        y1="40"
-        x2="40"
-        y2="192"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
-      />
+    <svg
+      {...props}
+      width="140"
+      height="100"
+      viewBox="0 0 140 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="D">
+        <rect
+          x="5"
+          y="11"
+          width="4"
+          height="80"
+          fill="black"
+          rx="2"
+          ry="2"
+          stroke="black"
+          strokeWidth="8"
+        />
+
+        <polyline
+          points="26,20 54,50 26,80"
+          fill="none"
+          stroke="black"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <g id="C">
+        <polyline
+          points="100,20 68,50 100,80"
+          fill="none"
+          stroke="black"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
     </svg>
   ),
   twitter: (props: IconProps) => (

@@ -6,6 +6,7 @@ const Blog = () => {
   return (
     <>
       <Header>
+        <BreadcrumbWithCustomSeparator />
         <h1 className="title font-semibold text-2xl tracking-tighter mt-4">
           Blog
         </h1>
