@@ -9,15 +9,11 @@ export async function GET() {
     // });
     const data = [
         { title: "Mastering Next.js 14", category: "Web Development", slug: "mastering-nextjs-14" },
-        { title: "Understanding React Server Components this is long title to test that how it is displayed on screen", category: "React", slug: "understanding-react-server-components" },
         { title: "Building Scalable APIs with NestJS", category: "Backend Development", slug: "building-scalable-apis-nestjs" },
         { title: "Advanced TypeScript Tips", category: "Programming", slug: "advanced-typescript-tips" },
         { title: "Optimizing Performance in Angular", category: "Angular", slug: "optimizing-performance-angular" },
         { title: "Introduction to Edge Functions", category: "Serverless", slug: "introduction-edge-functions" },
-        { title: "Using TanStack Query for Data Fetching", category: "React", slug: "using-tanstack-query" },
-        { title: "State Management in Next.js", category: "Web Development", slug: "state-management-nextjs" },
-        { title: "Microservices with .NET 8", category: "Backend Development", slug: "microservices-dotnet-8" },
-        { title: "AI in Web Development", category: "Technology", slug: "ai-in-web-development" },
+
       ];
       
 
