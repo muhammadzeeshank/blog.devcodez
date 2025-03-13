@@ -25,7 +25,7 @@ export default function CardCategory({
         <p>{summary}</p>
       </CardContent>
       <CardFooter>
-        <p className="text-xs text-gray-500">{formatDate(date.toString())}</p>
+        <p className="text-xs text-muted-foreground">{formatDate(date.toString())}</p>
       </CardFooter>
     </Card>
   );
