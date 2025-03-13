@@ -21,6 +21,8 @@ export function Navbar() {
               {/* <CommandMenu /> */}
             </div>
             <nav className="flex items-center gap-0.5">
+              <ModeSwitcher />
+
               <Button
                 asChild
                 variant="ghost"
@@ -32,11 +34,10 @@ export function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Icons.gitHub className="h-4 w-4" />
+                  <Icons.rss className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
                 </Link>
               </Button>
-              <ModeSwitcher />
             </nav>
           </div>
         </div>
