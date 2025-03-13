@@ -3,12 +3,11 @@
 import { Icons } from "./icons";
 import Link from "next/link";
 import { Input } from "./ui/input";
-import { useFormState } from "react-dom";
 import SubmitButton from "./submit-button";
 import { POSTS } from "@/lib/constants";
 
 export default function Footer() {
-  const initialState = { message: "", errors: {} };
+  // const initialState = { message: "", errors: {} };
   return (
     <footer className="bg-gray-100 py-8 dark:bg-gray-800 mt-10">
       <div className="container mx-auto px-4 md:px-6">

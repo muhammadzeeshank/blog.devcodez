@@ -1,7 +1,6 @@
 import Container from "@/components/container";
 import Header from "@/components/Header";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+
 import {
   Github,
   Linkedin,
@@ -11,7 +10,6 @@ import {
   Component,
   Type,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -38,7 +36,7 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Hi, I'm{" "}
+              Hi, I&aposm{" "}
               <span className="text-primary font-semibold">Zeeshan</span>, the
               creator and developer of{" "}
               <span className="text-primary font-semibold">DevCodez</span>.

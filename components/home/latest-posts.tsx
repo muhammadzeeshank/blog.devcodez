@@ -4,8 +4,7 @@ import { badgeVariants } from "../ui/badge";
 import { Icons } from "../icons";
 
 export default function LatestPosts() {
-  let latestPosts = getBlogPosts();
-  console.log("lstestposts: ", latestPosts);
+  const latestPosts = getBlogPosts();
   return (
     <>
       <h1 className="inline-block text-3xl font-bold tracking-tight ">

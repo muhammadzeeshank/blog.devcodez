@@ -1,4 +1,3 @@
-import BlogCards from "@/components/blog-cards";
 import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
 import Container from "@/components/container";
 import Header from "@/components/Header";

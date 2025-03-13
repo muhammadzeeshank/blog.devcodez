@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import matter, { GrayMatterFile } from 'gray-matter';
+import matter from 'gray-matter';
 
 interface BlogMetadata {
   title: string;
@@ -23,7 +23,7 @@ function getMDXFiles(dir: string): string[] {
 
   // Read data from those files
 function readMDXFile(filePath: fs.PathOrFileDescriptor): { metadata: BlogMetadata; content: string } {
-    let rawContent = fs.readFileSync(filePath, "utf-8");
+    const rawContent = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(rawContent);
 
     return { metadata: data as BlogMetadata, content }; // Explicitly type metadata
@@ -31,11 +31,11 @@ function readMDXFile(filePath: fs.PathOrFileDescriptor): { metadata: BlogMetadat
 
   // present the mdx data and metadata
 function getMDXData(dir: string): BlogPost[] {
-  let mdxFiles = getMDXFiles(dir);
+  const mdxFiles = getMDXFiles(dir);
 
   return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
+    const { metadata, content } = readMDXFile(path.join(dir, file));
+    const slug = path.basename(file, path.extname(file));
 
     return {
       metadata,
@@ -58,16 +58,16 @@ export function getPrivacyPolicy() {
 }
 
 export function formatDate(date: string, includeRelative = false) {
-  let currentDate = new Date();
+  const currentDate = new Date();
   if (!date?.includes("T")) {
     date = `${date}T00:00:00`;
   }
 
-  let targetDate = new Date(date);
+  const targetDate = new Date(date);
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  let daysAgo = currentDate.getDate() - targetDate.getDate();
+  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
+  const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
+  const daysAgo = currentDate.getDate() - targetDate.getDate();
 
   let formattedDate = "";
 
@@ -81,7 +81,7 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = "Today";
   }
 
-  let fullDate = targetDate.toLocaleString("en-us", {
+  const fullDate = targetDate.toLocaleString("en-us", {
     month: "long",
     day: "numeric",
     year: "numeric",

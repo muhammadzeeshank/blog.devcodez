@@ -1,4 +1,3 @@
-import { Slash } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,

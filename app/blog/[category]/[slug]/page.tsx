@@ -1,5 +1,3 @@
-import fs from "fs";
-import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import rehypeDocument from "rehype-document";
 import rehypeFormat from "rehype-format";
@@ -7,7 +5,6 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { reporter } from "vfile-reporter";
 import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import { formatDate, getBlogPosts } from "../../utils";
@@ -21,7 +18,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  let post = getBlogPosts().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

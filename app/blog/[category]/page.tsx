@@ -7,7 +7,7 @@ import Container from "@/components/container";
 import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     category: post.metadata.category,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function Page({ params }: { params: Promise<{ category: string }> }) {
   const category = (await params).category;
 
-  let posts = getBlogPosts().filter(
+  const posts = getBlogPosts().filter(
     (post) => post.metadata.category === category
   );
 
