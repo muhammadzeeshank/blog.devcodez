@@ -18,7 +18,7 @@ export default function Footer() {
               <Icons.logo className="h-6 w-6" />
               <span className="text-md font-semibold">DevCodez</span>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-foreground/70  text-sm">
               Stay Up to Date with the latest news and insights from our blog.
             </p>
             <div className="flex space-x-4">
@@ -28,7 +28,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <Icons.youtube className="h-6 w-6 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300" />
+                <Icons.youtube className="h-6 w-6 text-foreground/70 hover:text-foreground  " />
               </a>
               <a
                 href="https://github.com/muhammadzeeshank"
@@ -36,7 +36,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Github"
               >
-                <Icons.gitHub className="h-6 w-6 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300" />
+                <Icons.gitHub className="h-6 w-6 text-foreground/70 hover:text-foreground  " />
               </a>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function Footer() {
                 <li key={post.title}>
                   <Link
                     href={post.href}
-                    className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                    className="text-foreground/70 hover:text-foreground"
                   >
                     {post.title}
                   </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:w3tsadev@gmail.com"
-                  className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                  className="text-foreground/70 hover:text-foreground"
                 >
                   Contact
                 </a>
@@ -69,7 +69,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms-of-services"
-                  className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                  className="text-foreground/70 hover:text-foreground"
                 >
                   Terms of Services
                 </Link>
@@ -77,7 +77,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                  className="text-foreground/70 hover:text-foreground"
                 >
                   Privacy Policy
                 </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sitemap.xml"
-                  className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                  className="text-foreground/70 hover:text-foreground"
                 >
                   Sitemap
                 </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
           </div>
           <div className="space-y-4">
             <h3 className="text-md font-semibold">Newsletter</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-foreground/70  text-sm">
               Subscribe to our newsletter to stay up-to-date with the latest
               news and updates.
             </p>
@@ -132,7 +132,7 @@ export default function Footer() {
             </form>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-gray-600 dark:border-gray-700 dark:text-gray-400">
+        <div className="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-foreground/70 dark:border-gray-700 ">
           &copy; 2025 Muhammad Zeeshan. All rights reserved.
         </div>
       </div>

@@ -22,8 +22,8 @@ export function MainNav() {
         <Link
           href="/blog"
           className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname === "/blog" ? "text-foreground" : "text-foreground/80"
+            "transition-colors hover:text-foreground",
+            pathname === "/blog" ? "text-foreground" : "text-foreground/70"
           )}
         >
           Blog
@@ -31,10 +31,10 @@ export function MainNav() {
         <Link
           href="/about"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "transition-colors hover:text-foreground",
             pathname?.startsWith("/about")
               ? "text-foreground"
-              : "text-foreground/80"
+              : "text-foreground/70"
           )}
         >
           About

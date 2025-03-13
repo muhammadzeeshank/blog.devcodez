@@ -39,11 +39,13 @@ export default function LatestPosts() {
                       {post.metadata.category}
                     </Link>
 
-                    <p className="leading-8 text-muted-foreground ">{post.metadata.summary}</p>
+                    <p className="leading-8 text-foreground/70">
+                      {post.metadata.summary}
+                    </p>
                   </div>
                   <Link
                     href={`/blog/${post.metadata.category}/${post.slug}`}
-                    className="group inline-flex items-center text-sm text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+                    className="group inline-flex items-center text-sm transition-colors text-foreground/70 hover:text-foreground"
                   >
                     Read More
                     <Icons.arrowRight className="ml-1 h-2 w-2 transition-transform group-hover:translate-x-0.5" />
