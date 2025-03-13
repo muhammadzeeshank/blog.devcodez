@@ -62,7 +62,7 @@ export default async function Page({
           </div>
       </Header>
       <Container>
-        <div className="mx-auto prose dark:prose-invert max-w-3xl p-4">
+        <div className="mx-auto prose dark:prose-invert max-w-4xl p-4">
           {/* <BreadcrumbWithCustomSeparator
             category={post.metadata.category}
             slug={post.slug}
