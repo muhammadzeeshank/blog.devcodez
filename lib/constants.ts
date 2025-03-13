@@ -1,35 +1,26 @@
 export const POSTS: { title: string; href: string; description: string }[] = [
-    {
-      title: "React",
-      href: "/blog/react",
-      description:
-        "Learn React.js and Next.js in a simple to understand articles",
-    },
-    {
-      title: "Javascript",
-      href: "/blog/javascript",
-      description: "Learn what are new in the javascript world",
-    },
-    {
-      title: "CSS",
-      href: "/blog/css",
-      description: "Everything about CSS and the new features.",
-    },
-    {
-      title: "Performance",
-      href: "/blog/performance",
-      description: "How to make your next app Blazing fast",
-    },
-    {
-      title: "Animation",
-      href: "/blog/animations",
-      description:
-        "Everything you need to know about animations. We are going to learn about animation library like framer motion, GSAP and many more.",
-    },
-    {
-      title: "Career",
-      href: "/blog/career",
-      description:
-        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-  ];
+  {
+    title: "AI",
+    href: "/blog/ai",
+    description:
+      "Discover AI trends, machine learning techniques, and how to integrate AI into your applications.",
+  },
+  {
+    title: "Next.js",
+    href: "/blog/nextjs",
+    description:
+      "Master Next.js with in-depth tutorials, best practices, and the latest updates.",
+  },
+  {
+    title: "ASP.NET",
+    href: "/blog/aspnet",
+    description:
+      "Stay ahead with ASP.NET—learn about modern web development, APIs, and performance optimization.",
+  },
+  {
+    title: "Angular",
+    href: "/blog/angular",
+    description:
+      "Explore Angular's latest features, best practices, and step-by-step guides for building scalable applications.",
+  },
+];
