@@ -21,7 +21,7 @@ export default function LatestPosts() {
           })
           .map((post) => (
             <li key={post.slug} className="py-12">
-              <article key={post.slug} className="text-wrap max-w-lg">
+              <article key={post.slug} className="text-wrap max-w-2xl">
                 <div className="space-y-8">
                   <div className="space-y-4">
                     <p className="text-sm text-muted-foreground pb-2">
