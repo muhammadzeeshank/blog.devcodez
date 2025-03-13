@@ -6,7 +6,7 @@ interface BlogMetadata {
   title: string;
   date: string;
   category: string;
-  [key: string]: any; // Allows additional frontmatter fields
+  summary: string;
 }
 
 interface BlogPost {
