@@ -8,9 +8,9 @@ export default function LatestPosts() {
   console.log("lstestposts: ", latestPosts);
   return (
     <>
-      {/* <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
+      <h1 className="inline-block text-3xl font-bold tracking-tight ">
         Recently Published
-      </h1> */}
+      </h1>
       <ul className="divide-y divide-gray-200 pr-8 dark:divide-gray-700">
         {latestPosts
           .sort((a, b) => {
