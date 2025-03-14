@@ -12,6 +12,14 @@ import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
 import Container from "@/components/container";
 import Header from "@/components/Header";
 
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default async function Page({
   params,
 }: {
