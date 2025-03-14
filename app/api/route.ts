@@ -1,22 +1,22 @@
-// import { db } from "@/db";
+import { db } from "@/db";
 
 export async function GET() {
   try {
-    // const data = await db.blog.findMany({
-    //   take: 10,
-    //   select: { title: true, category: true, slug: true },
-    //   orderBy: [{ view_count: "desc" }],
-    // });
-    const data = [
-        { title: "Mastering Next.js 14", category: "Web Development", slug: "mastering-nextjs-14" },
-        { title: "Building Scalable APIs with NestJS", category: "Backend Development", slug: "building-scalable-apis-nestjs" },
-        { title: "Advanced TypeScript Tips", category: "Programming", slug: "advanced-typescript-tips" },
-        { title: "Optimizing Performance in Angular", category: "Angular", slug: "optimizing-performance-angular" },
-        { title: "Introduction to Edge Functions", category: "Serverless", slug: "introduction-edge-functions" },
+    const data = await db.blog.findMany({
+      take: 10,
+      select: { title: true, category: true, slug: true },
+      orderBy: [{ view_count: "desc" }],
+    });
+    // const data = [
+    //     { title: "Mastering Next.js 14", category: "Web Development", slug: "mastering-nextjs-14" },
+    //     { title: "Building Scalable APIs with NestJS", category: "Backend Development", slug: "building-scalable-apis-nestjs" },
+    //     { title: "Advanced TypeScript Tips", category: "Programming", slug: "advanced-typescript-tips" },
+    //     { title: "Optimizing Performance in Angular", category: "Angular", slug: "optimizing-performance-angular" },
+    //     { title: "Introduction to Edge Functions", category: "Serverless", slug: "introduction-edge-functions" },
 
-      ];
+    //   ];
       
-
+    console.log("data: ", data)
     return Response.json(data);
   } catch (error) {
     console.error("Database Error...", error);
@@ -24,34 +24,34 @@ export async function GET() {
   }
 }
 
-// export async function POST(request: Request) {
-//   const { slug, title, category } = await request.json();
+export async function POST(request: Request) {
+  const { slug, title, category } = await request.json();
 
-//   try {
-//     const existingPost = await db.blog.findUnique({
-//       where: { slug: slug },
-//     });
+  try {
+    const existingPost = await db.blog.findUnique({
+      where: { slug: slug },
+    });
 
-//     if (existingPost) {
-//       await db.blog.update({
-//         where: { slug: slug },
-//         data: {
-//           view_count: { increment: 1 },
-//         },
-//       });
-//     } else {
-//       await db.blog.create({
-//         data: {
-//           slug: slug,
-//           title: title,
-//           category: category,
-//         },
-//       });
-//     }
-//   } catch (error) {
-//     console.error("Error updating page view", error);
-//     return new Response("Failed to post to DB", { status: 500 });
-//   }
+    if (existingPost) {
+      await db.blog.update({
+        where: { slug: slug },
+        data: {
+          view_count: { increment: 1 },
+        },
+      });
+    } else {
+      await db.blog.create({
+        data: {
+          slug: slug,
+          title: title,
+          category: category,
+        },
+      });
+    }
+  } catch (error) {
+    console.error("Error updating page view", error);
+    return new Response("Failed to post to DB", { status: 500 });
+  }
 
-//   return new Response("Successfully posted to DB", { status: 200 });
-// }
+  return new Response("Successfully posted to DB", { status: 200 });
+}

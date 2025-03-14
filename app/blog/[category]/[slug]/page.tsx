@@ -11,6 +11,7 @@ import { formatDate, getBlogPosts } from "../../utils";
 import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
 import Container from "@/components/container";
 import Header from "@/components/Header";
+import ReportViews from "@/components/report-views";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -52,19 +53,24 @@ export default async function Page({
 
   return (
     <>
+      <ReportViews
+        category={post.metadata.category}
+        title={post.metadata.title}
+        slug={post.slug}
+      />
       <Header>
-          <BreadcrumbWithCustomSeparator
-            category={post.metadata.category}
-            slug={post.slug}
-          />
-          <h1 className="title font-semibold text-2xl tracking-tighter mt-4">
-            {post.metadata.title}
-          </h1>
-          <div className="flex justify-between items-center mt-2 text-sm">
-            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
-              {formatDate(post.metadata.date.toString())}
-            </p>
-          </div>
+        <BreadcrumbWithCustomSeparator
+          category={post.metadata.category}
+          slug={post.slug}
+        />
+        <h1 className="title font-semibold text-2xl tracking-tighter mt-4">
+          {post.metadata.title}
+        </h1>
+        <div className="flex justify-between items-center mt-2 text-sm">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+            {formatDate(post.metadata.date.toString())}
+          </p>
+        </div>
       </Header>
       <Container>
         <div className="mx-auto prose dark:prose-invert max-w-4xl p-4">
