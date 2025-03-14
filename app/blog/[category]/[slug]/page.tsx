@@ -21,6 +21,48 @@ export async function generateStaticParams() {
   }));
 }
 
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: Promise<{ slug: string; category: string }>
+// }) {
+//   const param = (await params);
+//   let post = getBlogPosts().find((post) => post.slug === param.slug);
+//   if (!post) {
+//     return;
+//   }
+
+//   let {
+//     title,
+//     date: publishedTime,
+//     summary: description,
+//     image,
+//   } = post.metadata;
+
+//   let ogImage = image
+//     ? image
+//     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+
+//   return {
+//     title,
+//     description,
+//     openGraph: {
+//       title,
+//       description,
+//       type: "article",
+//       publishedTime,
+//       url: `${baseUrl}/blog/${post?.metadata.category}/${post?.slug}}`,
+//       images: [{ url: ogImage }],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title,
+//       description,
+//       images: [ogImage],
+//     },
+//   };
+// }
+
 export default async function Page({
   params,
 }: {

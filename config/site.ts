@@ -1,9 +1,9 @@
 export const siteConfig = {
     name: "DevCodez",
-    url: "https://ui.shadcn.com",
+    url: "https://www.devcodez.com",
     ogImage: "https://ui.shadcn.com/og.jpg",
     description:
-      "Beautifully designed starting template for nextjs",
+      "Learn web development, AI, and programming with expert tutorials on React, Angular, Next.js, .NET, databases, and artificial intelligence. Stay updated with coding best practices, real-world projects, and industry insights to enhance your skills. 🚀 #WebDevelopment #AI #Coding #Programming",
     links: {
       portfolio: "https://zeeshan.devcodez.com",
       github: "https://github.com/muhammadzeeshank",

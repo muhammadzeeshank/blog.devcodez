@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/providers";
 import Footer from "@/components/footer";
+import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +17,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DevCodez Blog",
-  description:
-    "Learn web development, AI, and programming with expert tutorials on React, Angular, Next.js, .NET, databases, and artificial intelligence. Stay updated with coding best practices, real-world projects, and industry insights to enhance your skills. 🚀 #WebDevelopment #AI #Coding #Programming",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Server Components",
+    "Shadcnui",
+    "Javascript",
+    "Blog",
+    "ASP.NET",
+    "dot net",
+    "angular",
+    "AI"
+  ],
+  authors: [
+    {
+      name: "Muhammad Zeeshan",
+      url: "https://zeeshan.devcodez.com",
+    },
+  ],
+  creator: "Muhammad Zeeshan",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
