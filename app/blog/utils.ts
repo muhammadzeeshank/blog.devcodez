@@ -7,6 +7,7 @@ interface BlogMetadata {
   date: string;
   category: string;
   summary: string;
+  image: string;
 }
 
 interface BlogPost {

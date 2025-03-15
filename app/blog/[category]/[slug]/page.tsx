@@ -12,6 +12,7 @@ import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
 import Container from "@/components/container";
 import Header from "@/components/Header";
 import ReportViews from "@/components/report-views";
+import { baseUrl } from "@/app/sitemap";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -21,47 +22,47 @@ export async function generateStaticParams() {
   }));
 }
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Promise<{ slug: string; category: string }>
-// }) {
-//   const param = (await params);
-//   let post = getBlogPosts().find((post) => post.slug === param.slug);
-//   if (!post) {
-//     return;
-//   }
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; category: string }>
+}) {
+  const param = (await params);
+  let post = getBlogPosts().find((post) => post.slug === param.slug);
+  if (!post) {
+    return;
+  }
 
-//   let {
-//     title,
-//     date: publishedTime,
-//     summary: description,
-//     image,
-//   } = post.metadata;
+  let {
+    title,
+    date: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
 
-//   let ogImage = image
-//     ? image
-//     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  let ogImage = image
+    ? image
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
-//   return {
-//     title,
-//     description,
-//     openGraph: {
-//       title,
-//       description,
-//       type: "article",
-//       publishedTime,
-//       url: `${baseUrl}/blog/${post?.metadata.category}/${post?.slug}}`,
-//       images: [{ url: ogImage }],
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title,
-//       description,
-//       images: [ogImage],
-//     },
-//   };
-// }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      url: `${baseUrl}/blog/${post?.metadata.category}/${post?.slug}}`,
+      images: [{ url: ogImage }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function Page({
   params,
