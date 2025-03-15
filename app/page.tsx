@@ -1,6 +1,3 @@
-import LatestPosts from "@/components/home/latest-posts";
-import PopularPosts from "@/components/home/popular-posts";
-import TopCatogories from "@/components/home/top-categories";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
