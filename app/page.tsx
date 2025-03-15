@@ -1,25 +1,23 @@
 import LatestPosts from "@/components/home/latest-posts";
 import PopularPosts from "@/components/home/popular-posts";
 import TopCatogories from "@/components/home/top-categories";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col items-start justify-evenly mt-16 md:flex-row">
-        <div>
-          <LatestPosts />
-        </div>
-        <div className="h-screen">
-          <div>
-            <h1 className="font-bold mb-4">TOP CATEGORIES</h1>
-            <TopCatogories />
-          </div>
-          <div className="mt-10 sticky top-20">
-            <h1 className="font-bold mb-4">POPULAR POSTS</h1>
-            <PopularPosts />
-          </div>
-        </div>
-      </main>
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <h1 className="text-5xl text-foreground font-bold mb-8 animate-pulse">
+          Coming Soon
+        </h1>
+        <p className="text-foreground/70 text-lg mb-8">
+          We're working hard to bring you something amazing. Stay tuned!
+        </p>
+        <Button asChild>
+          <Link href="/blog">Read the Blog</Link>
+        </Button>
+      </div>
     </>
   );
 }
