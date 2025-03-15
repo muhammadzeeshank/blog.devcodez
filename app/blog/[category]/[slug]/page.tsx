@@ -28,19 +28,19 @@ export async function generateMetadata({
   params: Promise<{ slug: string; category: string }>
 }) {
   const param = (await params);
-  let post = getBlogPosts().find((post) => post.slug === param.slug);
+  const post = getBlogPosts().find((post) => post.slug === param.slug);
   if (!post) {
     return;
   }
 
-  let {
+  const {
     title,
     date: publishedTime,
     summary: description,
     image,
   } = post.metadata;
 
-  let ogImage = image
+  const ogImage = image
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 

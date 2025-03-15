@@ -2,7 +2,6 @@ import Link from "next/link";
 
 // import { CommandMenu } from "@/components/command-menu"
 import { MobileNav } from "@/components/mobile-nav";
-import { siteConfig } from "@/config/site";
 import { Icons } from "./icons";
 import { MainNav } from "./main-nav";
 import { Button } from "./ui/button";

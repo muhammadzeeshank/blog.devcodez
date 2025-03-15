@@ -9,7 +9,7 @@ export default function Home() {
           Coming Soon
         </h1>
         <p className="text-foreground/70 text-lg mb-8">
-          We're working hard to bring you something amazing. Stay tuned!
+          We are working hard to bring you something amazing. Stay tuned!
         </p>
         <Button asChild>
           <Link href="/blog">Read the Blog</Link>
