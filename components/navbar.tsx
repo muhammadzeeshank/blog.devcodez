@@ -30,9 +30,7 @@ export function Navbar() {
                 className="h-8 w-8 px-0"
               >
                 <Link
-                  href={siteConfig.links.github}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/rss"
                 >
                   <Icons.rss className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
