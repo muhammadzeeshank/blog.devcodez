@@ -1,36 +1,29 @@
 import fs from "fs";
 import path from "path";
-import matter from 'gray-matter';
-
-interface BlogMetadata {
-  title: string;
-  date: string;
-  category: string;
-  summary: string;
-  image: string;
-}
-
-interface BlogPost {
-  metadata: BlogMetadata;
-  slug: string;
-  content: string;
-}
-
+import matter from "gray-matter";
+import { BlogMetadata, BlogPost } from "@/types/blog";
 
 // get all the mdx files from the dir
 function getMDXFiles(dir: string): string[] {
-    return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx" || path.extname(file) === ".md");
-  }
+  return fs
+    .readdirSync(dir)
+    .filter(
+      (file) => path.extname(file) === ".mdx" || path.extname(file) === ".md"
+    );
+}
 
-  // Read data from those files
-function readMDXFile(filePath: fs.PathOrFileDescriptor): { metadata: BlogMetadata; content: string } {
-    const rawContent = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(rawContent);
+// Read data from those files
+function readMDXFile(filePath: fs.PathOrFileDescriptor): {
+  metadata: BlogMetadata;
+  content: string;
+} {
+  const rawContent = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(rawContent);
 
-    return { metadata: data as BlogMetadata, content }; // Explicitly type metadata
-  }
+  return { metadata: data as BlogMetadata, content }; // Explicitly type metadata
+}
 
-  // present the mdx data and metadata
+// present the mdx data and metadata
 function getMDXData(dir: string): BlogPost[] {
   const mdxFiles = getMDXFiles(dir);
 
@@ -49,12 +42,12 @@ function getMDXData(dir: string): BlogPost[] {
 export function getBlogPosts(): BlogPost[] {
   return getMDXData(path.join(process.cwd(), "content"));
 }
-export function getTermsOfServices() {
-  return getMDXData(
-    path.join(process.cwd(), "app", "terms-of-services")
-  );
-}
-export function getPrivacyPolicy() {
+// export function getTermsOfServices() {
+//   return getMDXData(
+//     path.join(process.cwd(), "app", "terms-of-services")
+//   );
+// }
+export function getPrivacyPolicy(): BlogPost[] {
   return getMDXData(path.join(process.cwd(), "app", "privacy-policy"));
 }
 

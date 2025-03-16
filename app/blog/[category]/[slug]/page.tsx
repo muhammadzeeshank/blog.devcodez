@@ -13,6 +13,7 @@ import Container from "@/components/container";
 import Header from "@/components/Header";
 import ReportViews from "@/components/report-views";
 import { baseUrl } from "@/app/sitemap";
+import { CustomMDX } from "@/components/mdx";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -141,16 +142,7 @@ export default async function Page({
         </div>
       </Header>
       <Container>
-        <div className="mx-auto prose dark:prose-invert max-w-4xl p-4">
-          {/* <BreadcrumbWithCustomSeparator
-            category={post.metadata.category}
-            slug={post.slug}
-          /> */}
-          {/* <h1 className="text-4xl font-bold mb-2">{post.metadata.title}</h1> */}
-          {/* <p className="text-base mt-0 text-muted-foreground">{data.date}</p> */}
-          {/* <hr className="my-4" /> */}
-          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-        </div>
+        <CustomMDX source={post} />
       </Container>
     </>
   );
