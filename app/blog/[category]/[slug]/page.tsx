@@ -1,12 +1,4 @@
 import { notFound } from "next/navigation";
-import rehypeDocument from "rehype-document";
-import rehypeFormat from "rehype-format";
-import rehypeStringify from "rehype-stringify";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import { unified } from "unified";
-import rehypePrettyCode from "rehype-pretty-code";
-import { transformerCopyButton } from "@rehype-pretty/transformers";
 import { formatDate, getBlogPosts } from "../../utils";
 import { BreadcrumbWithCustomSeparator } from "@/components/bread-crumb";
 import Container from "@/components/container";
@@ -76,24 +68,6 @@ export default async function Page({
   if (!post) {
     notFound();
   }
-
-  const processor = await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypePrettyCode, {
-      theme: "one-dark-pro",
-      transformers: [
-        transformerCopyButton({
-          visibility: "always",
-          feedbackDuration: 3_000,
-        }),
-      ],
-    })
-    .use(rehypeDocument, { title: post.metadata.title })
-    .use(rehypeFormat)
-    .use(rehypeStringify);
-
-  const htmlContent = (await processor.process(post.content)).toString();
 
   return (
     <>
