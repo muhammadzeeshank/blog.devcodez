@@ -109,3 +109,11 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 code[data-line-numbers-max-digits="4"] > [data-line]::before {
   width: 2.25rem;
 }
+
+pre, code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-x: auto;
+}
+
+
