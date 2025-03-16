@@ -5,8 +5,6 @@ import { CustomMDX } from "@/components/mdx";
 import { getPrivacyPolicy } from "../blog/utils";
 
 export default function Page() {
-  console.log("getpp:", getPrivacyPolicy());
-
   let post = getPrivacyPolicy().find((post) => post.slug === "privacy-policy");
 
   return (
