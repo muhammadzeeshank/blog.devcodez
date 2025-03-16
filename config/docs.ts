@@ -11,28 +11,12 @@ export const docsConfig: DocsConfig = {
       href: "/",
     },
     {
-      title: "Documentation",
-      href: "/docs",
+      title: "Blog",
+      href: "/blog",
     },
     {
-      title: "Components",
-      href: "/docs/components/accordion",
-    },
-    {
-      title: "Blocks",
-      href: "/blocks",
-    },
-    {
-      title: "Charts",
-      href: "/charts",
-    },
-    {
-      title: "Themes",
-      href: "/themes",
-    },
-    {
-      title: "Colors",
-      href: "/colors",
-    },
+      title: "About",
+      href: "/about",
+    }
   ],
 }
