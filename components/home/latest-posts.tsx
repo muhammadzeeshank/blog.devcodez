@@ -24,7 +24,7 @@ export default function LatestPosts() {
                 <div className="space-y-8">
                   <div className="space-y-4">
                     <p className="text-sm text-muted-foreground pb-2">
-                      {formatDate(post.metadata.date.toString())}
+                      {formatDate(post.metadata.date?.toString())}
                     </p>
                     <Link href={`/blog/${post.metadata.category}/${post.slug}`}>
                       <h3 className="font-bold text-xl py-2 leading-5 hover:text-blue-400">
