@@ -7,6 +7,7 @@ import SubmitButton from "./submit-button";
 import { POSTS } from "@/lib/constants";
 import { createSubscriber } from "@/lib/actions";
 import { useFormState } from "react-dom";
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   const initialState = { message: "", errors: {} };
@@ -17,8 +18,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Icons.logo className="h-6 w-6" />
-              <span className="text-md font-semibold">DevCodez</span>
+              <Icons.logoDark className="h-6 w-6" />
+              <span className="text-md font-semibold">{siteConfig.name}</span>
             </div>
             <p className="text-foreground/70  text-sm">
               Stay Up to Date with the latest news and insights from our blog.

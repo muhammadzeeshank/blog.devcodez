@@ -1,5 +1,5 @@
 export const siteConfig = {
-    name: "DevCodez",
+    name: "devCodez",
     url: "https://www.devcodez.com",
     ogImage: "https://ui.shadcn.com/og.jpg",
     description:
