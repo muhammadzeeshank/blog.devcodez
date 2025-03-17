@@ -6,12 +6,12 @@ import { Input } from "./ui/input";
 import SubmitButton from "./submit-button";
 import { POSTS } from "@/lib/constants";
 import { createSubscriber } from "@/lib/actions";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   const initialState = { message: "", errors: {} };
-  const [state, dispatch] = useFormState(createSubscriber, initialState);
+  const [state, dispatch] = useActionState(createSubscriber, initialState);
   return (
     <footer className="bg-gray-100 py-8 dark:bg-gray-800 mt-10">
       <div className="container mx-auto px-4 md:px-6">
